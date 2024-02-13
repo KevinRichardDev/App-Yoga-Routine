@@ -21,17 +21,18 @@ const utils = {
     document.querySelector(".btn-container").innerHTML = btn;
   },
 
-  handleEventMinutes: function() {
+  handleEventMinutes: function () {
     document.querySelectorAll('input[type="number"]').forEach((input) => {
-      input.addEventListener('input', (e) => {
+      input.addEventListener("input", (e) => {
         exerciceArray.map((exo) => {
-          if(exo.pic == e.target.id) {
-            console.log("yes");
+          if (exo.pic == e.target.id) {
+            exo.min = parseInt(e.target.value);
+            console.log(exerciceArray);
           }
-        })
-      })
-    })
-  }
+        });
+      });
+    });
+  },
 };
 
 const page = {
