@@ -26,7 +26,7 @@ const page = {
   lobby: function () {
     utils.pageContent(
       "Paramétrage <i id='reboot' class='fas fa-undo'></i>",
-      "Exercices",
+      "exerciceArray",
       "<button id='start'>Commencer<i class='far fa-play-circle'></i></button>"
     );
   },
@@ -35,7 +35,13 @@ const page = {
     utils.pageContent("Routine", "Exercice avec chrono", null);
   },
 
-  finish: function () {},
+  finish: function () {
+    utils.pageContent(
+      "C'est terminé !",
+      "<button id='start'>Recommencer</button>",
+      "<button id='reboot' class='btn-reboot'>Réinitialiser <i class='fas fa-times-circle'></i></button>"
+    );
+  },
 };
 
-page.routine();
+page.lobby();
