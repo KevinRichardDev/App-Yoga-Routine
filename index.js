@@ -33,6 +33,14 @@ const utils = {
       });
     });
   },
+
+  handleEventArrow: function() {
+    document.querySelectorAll('.arrow').forEach((arrow) => {
+      arrow.addEventListener("click", (e) => {
+        console.log(e);
+      })
+    })
+  }
 };
 
 const page = {
@@ -60,6 +68,7 @@ const page = {
       "<button id='start'>Commencer<i class='far fa-play-circle'></i></button>"
     );
     utils.handleEventMinutes();
+    utils.handleEventArrow();
   },
 
   routine: function () {
