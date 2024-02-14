@@ -34,21 +34,22 @@ const utils = {
     });
   },
 
-  handleEventArrow: function() {
-    document.querySelectorAll('.arrow').forEach((arrow) => {
+  handleEventArrow: function () {
+    document.querySelectorAll(".arrow").forEach((arrow) => {
       arrow.addEventListener("click", (e) => {
         let position = 0;
         exerciceArray.map((exo) => {
-          if(exo.pic == e.target.dataset.pic) {
-            return console.log("yes");
+          if (exo.pic == e.target.dataset.pic) {
+            [exerciceArray[0], exerciceArray[1]] = [exerciceArray[1], exerciceArray[0]]
+            console.log(exerciceArray);
           } else {
             position++;
             console.log(position);
           }
-        })
-      })
-    })
-  }
+        });
+      });
+    });
+  },
 };
 
 const page = {
