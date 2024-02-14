@@ -40,7 +40,7 @@ const utils = {
         let position = 0;
         exerciceArray.map((exo) => {
           if (exo.pic == e.target.dataset.pic) {
-            [exerciceArray[0], exerciceArray[1]] = [exerciceArray[1], exerciceArray[0]]
+            [exerciceArray[position], exerciceArray[position - 1]] = [exerciceArray[position - 1], exerciceArray[position]]
             console.log(exerciceArray);
           } else {
             position++;
