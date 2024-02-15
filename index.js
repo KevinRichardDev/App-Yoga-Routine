@@ -64,6 +64,7 @@ const utils = {
           }
         });
         exerciceArray = newArr;
+        console.log(exerciceArray);
       });
     });
   },
