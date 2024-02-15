@@ -50,6 +50,14 @@ const utils = {
       });
     });
   },
+
+  deleteItem: function() {
+    document.querySelectorAll('.deleteBtn').forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        console.log(e);
+      })
+    })
+  }
 };
 
 const page = {
@@ -78,6 +86,7 @@ const page = {
     );
     utils.handleEventMinutes();
     utils.handleEventArrow();
+    utils.deleteItem();
   },
 
   routine: function () {
