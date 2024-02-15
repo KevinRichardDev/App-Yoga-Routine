@@ -40,8 +40,11 @@ const utils = {
         let position = 0;
         exerciceArray.map((exo) => {
           if (exo.pic == e.target.dataset.pic && position !== 0) {
-            [exerciceArray[position], exerciceArray[position - 1]] = [exerciceArray[position - 1], exerciceArray[position]]
-            page.lobby()
+            [exerciceArray[position], exerciceArray[position - 1]] = [
+              exerciceArray[position - 1],
+              exerciceArray[position],
+            ];
+            page.lobby();
           } else {
             position++;
             console.log(position);
@@ -51,13 +54,19 @@ const utils = {
     });
   },
 
-  deleteItem: function() {
-    document.querySelectorAll('.deleteBtn').forEach((btn) => {
+  deleteItem: function () {
+    document.querySelectorAll(".deleteBtn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        console.log(e);
-      })
-    })
-  }
+        let newArr = [];
+        exerciceArray.map((exo) => {
+          if (exo.pic != e.target.dataset.pic) {
+            newArr.push(exo);
+          }
+        });
+        exerciceArray = newArr;
+      });
+    });
+  },
 };
 
 const page = {
