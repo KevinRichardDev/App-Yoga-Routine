@@ -64,10 +64,14 @@ const utils = {
           }
         });
         exerciceArray = newArr;
-        console.log(exerciceArray);
+        page.lobby();
       });
     });
   },
+
+  reboot: function() {
+    
+  }
 };
 
 const page = {
@@ -97,6 +101,7 @@ const page = {
     utils.handleEventMinutes();
     utils.handleEventArrow();
     utils.deleteItem();
+    reboot.addEventListener('click', () => utils.reboot());
   },
 
   routine: function () {
