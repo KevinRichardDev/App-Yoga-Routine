@@ -1,5 +1,5 @@
 const main = document.querySelector("main");
-let exerciceArray = [
+const basicArray = [
   { pic: 0, min: 1 },
   { pic: 1, min: 1 },
   { pic: 2, min: 1 },
@@ -10,7 +10,8 @@ let exerciceArray = [
   { pic: 7, min: 1 },
   { pic: 8, min: 1 },
   { pic: 9, min: 1 },
-];
+]
+let exerciceArray = [];
 
 class Exercice {}
 
@@ -70,7 +71,7 @@ const utils = {
   },
 
   reboot: function() {
-    
+
   }
 };
 
