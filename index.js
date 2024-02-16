@@ -82,6 +82,10 @@ const utils = {
   reboot: function() {
     exerciceArray = basicArray;
     page.lobby();
+  },
+
+  store: function() {
+    localStorage.exercices = exerciceArray
   }
 };
 
