@@ -10,13 +10,13 @@ const basicArray = [
   { pic: 7, min: 1 },
   { pic: 8, min: 1 },
   { pic: 9, min: 1 },
-]
+];
 let exerciceArray = [];
 
 // Get stored exercices array
 (() => {
   if (localStorage.exercices) {
-    exerciceArray = localStorage.exercices
+    exerciceArray = JSON.parse(localStorage.exercices);
   } else {
     exerciceArray = basicArray;
   }
@@ -37,7 +37,7 @@ const utils = {
         exerciceArray.map((exo) => {
           if (exo.pic == e.target.id) {
             exo.min = parseInt(e.target.value);
-            console.log(exerciceArray);
+            this.store();
           }
         });
       });
@@ -55,6 +55,7 @@ const utils = {
               exerciceArray[position],
             ];
             page.lobby();
+            this.store();
           } else {
             position++;
             console.log(position);
@@ -75,18 +76,20 @@ const utils = {
         });
         exerciceArray = newArr;
         page.lobby();
+        this.store();
       });
     });
   },
 
-  reboot: function() {
+  reboot: function () {
     exerciceArray = basicArray;
     page.lobby();
+    this.store();
   },
 
-  store: function() {
-    localStorage.exercices = exerciceArray
-  }
+  store: function () {
+    localStorage.exercices = JSON.stringify(exerciceArray);
+  },
 };
 
 const page = {
@@ -116,7 +119,7 @@ const page = {
     utils.handleEventMinutes();
     utils.handleEventArrow();
     utils.deleteItem();
-    reboot.addEventListener('click', () => utils.reboot());
+    reboot.addEventListener("click", () => utils.reboot());
   },
 
   routine: function () {
