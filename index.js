@@ -13,6 +13,15 @@ const basicArray = [
 ]
 let exerciceArray = [];
 
+// Get stored exercices array
+(() => {
+  if (localStorage.exercices) {
+    exerciceArray = localStorage.exercices
+  } else {
+    exerciceArray = basicArray;
+  }
+})();
+
 class Exercice {}
 
 const utils = {
@@ -71,7 +80,8 @@ const utils = {
   },
 
   reboot: function() {
-
+    exerciceArray = basicArray;
+    page.lobby();
   }
 };
 
