@@ -125,7 +125,7 @@ const page = {
 
   routine: function () {
     const exercice = new Exercice();
-    utils.pageContent("Routine", "Exercice avec chrono", null);
+    utils.pageContent("Routine", exercice.updateCountdown, null);
   },
 
   finish: function () {
