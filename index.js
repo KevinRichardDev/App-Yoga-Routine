@@ -30,7 +30,13 @@ class Exercice {
   }
 
   updateCountdown() {
-    
+    main.innerHTML = `
+      <div class="exercice-container">
+        <p>${this.minutes}:${this.seconds}</p>
+        <img src="./img/${exerciceArray[this.index].pic}.png" />
+        <div>${this.index + 1}/${exerciceArray.length}</div>
+      </div>
+    `
   }
 }
 
