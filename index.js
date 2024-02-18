@@ -22,7 +22,13 @@ let exerciceArray = [];
   }
 })();
 
-class Exercice {}
+class Exercice {
+  constructor() {
+    this.index = 0;
+    this.minutes = exerciceArray[this.index].min;
+    
+  }
+}
 
 const utils = {
   pageContent: function (title, content, btn) {
