@@ -26,6 +26,10 @@ class Exercice {
   constructor() {
     this.index = 0;
     this.minutes = exerciceArray[this.index].min;
+    this.seconds = 0;
+  }
+
+  updateCountdown() {
     
   }
 }
