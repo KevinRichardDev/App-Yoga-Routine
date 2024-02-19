@@ -30,8 +30,13 @@ class Exercice {
   }
 
   updateCountdown() {
+    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
-    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds
+    setTimeout(() => {
+      if(this.minutes === 0 && this.seconds == "00") {
+        this.index++;
+      }
+    }, 1000)
 
     return (main.innerHTML = `
       <div class="exercice-container">
@@ -39,7 +44,7 @@ class Exercice {
         <img src="./img/${exerciceArray[this.index].pic}.png" />
         <div>${this.index + 1}/${exerciceArray.length}</div>
       </div>
-    `)
+    `);
   }
 }
 
