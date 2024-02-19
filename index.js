@@ -33,13 +33,25 @@ class Exercice {
     this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
     setTimeout(() => {
-      if(this.minutes === 0 && this.seconds == "00") {
+      if (this.minutes === 0 && this.seconds === "00") {
         this.index++;
+        if (this.index < exerciceArray.length) {
+          this.minutes = exerciceArray[this.index].min;
+          this.seconds = 0;
+          this.updateCountdown();
+        } else {
+          return page.finish();
+        }
+        this.updateCountdown();
+      } else if (this.seconds === "00") {
+        this.minutes--;
+        this.seconds = 59;
+        this.updateCountdown();
       } else {
         this.seconds--;
         this.updateCountdown();
       }
-    }, 100)
+    }, 10);
 
     return (main.innerHTML = `
       <div class="exercice-container">
