@@ -35,8 +35,11 @@ class Exercice {
     setTimeout(() => {
       if(this.minutes === 0 && this.seconds == "00") {
         this.index++;
+      } else {
+        this.seconds--;
+        this.updateCountdown();
       }
-    }, 1000)
+    }, 100)
 
     return (main.innerHTML = `
       <div class="exercice-container">
