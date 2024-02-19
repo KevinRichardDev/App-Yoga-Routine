@@ -31,7 +31,8 @@ class Exercice {
 
   updateCountdown() {
 
-    
+    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds
+
     return (main.innerHTML = `
       <div class="exercice-container">
         <p>${this.minutes}:${this.seconds}</p>
