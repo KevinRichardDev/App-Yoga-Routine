@@ -35,6 +35,7 @@ class Exercice {
     setTimeout(() => {
       if (this.minutes === 0 && this.seconds === "00") {
         this.index++;
+        this.ring();
         if (this.index < exerciceArray.length) {
           this.minutes = exerciceArray[this.index].min;
           this.seconds = 0;
@@ -42,7 +43,6 @@ class Exercice {
         } else {
           return page.finish();
         }
-        this.updateCountdown();
       } else if (this.seconds === "00") {
         this.minutes--;
         this.seconds = 59;
@@ -58,8 +58,7 @@ class Exercice {
         <p>${this.minutes}:${this.seconds}</p>
         <img src="./img/${exerciceArray[this.index].pic}.png" />
         <div>${this.index + 1}/${exerciceArray.length}</div>
-      </div>
-    `);
+      </div>`);
   }
 }
 
@@ -97,7 +96,6 @@ const utils = {
             this.store();
           } else {
             position++;
-            console.log(position);
           }
         });
       });
@@ -139,10 +137,10 @@ const page = {
           `
         <li>
           <div class="card-header">
-            <input type="number" id=${exo.pic} min="1" max"10" value=${exo.min}>
+            <input type="number" id=${exo.pic} min="1" max="10" value=${exo.min}>
             <span>min</span>
           </div>
-          <img src="./img/${exo.pic}.png"/>
+          <img src="./img/${exo.pic}.png" />
           <i class="fas fa-arrow-alt-circle-left arrow" data-pic=${exo.pic}></i>
           <i class="fas fa-times-circle deleteBtn" data-pic=${exo.pic}></i>
         </li>
@@ -164,6 +162,7 @@ const page = {
 
   routine: function () {
     const exercice = new Exercice();
+
     utils.pageContent("Routine", exercice.updateCountdown(), null);
   },
 
@@ -171,8 +170,10 @@ const page = {
     utils.pageContent(
       "C'est terminé !",
       "<button id='start'>Recommencer</button>",
-      "<button id='reboot' class='btn-reboot'>Réinitialiser <i class='fas fa-times-circle'></i></button>"
+      "<button id='reboot' class='btn-reboot'>Réinintialiser <i class='fas fa-times-circle'></i></button>"
     );
+    start.addEventListener("click", () => this.routine());
+    reboot.addEventListener("click", () => utils.reboot());
   },
 };
 
