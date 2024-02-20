@@ -63,6 +63,8 @@ class Exercice {
 
   ring() {
     const audio = new Audio();
+    audio.src = "ring.mp3"
+    audio.play()
   }
 }
 
