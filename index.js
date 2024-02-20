@@ -180,6 +180,7 @@ const page = {
     );
 
     start.addEventListener("click", () => this.routine());
+    reboot.addEventListener("click", () => utils.reboot());
   },
 };
 
