@@ -60,6 +60,10 @@ class Exercice {
         <div>${this.index + 1}/${exerciceArray.length}</div>
       </div>`);
   }
+
+  ring() {
+    const audio = new Audio();
+  }
 }
 
 const utils = {
