@@ -63,8 +63,8 @@ class Exercice {
 
   ring() {
     const audio = new Audio();
-    audio.src = "ring.mp3"
-    audio.play()
+    audio.src = "ring.mp3";
+    audio.play();
   }
 }
 
@@ -178,8 +178,8 @@ const page = {
       "<button id='start'>Recommencer</button>",
       "<button id='reboot' class='btn-reboot'>Réinintialiser <i class='fas fa-times-circle'></i></button>"
     );
+
     start.addEventListener("click", () => this.routine());
-    reboot.addEventListener("click", () => utils.reboot());
   },
 };
 
